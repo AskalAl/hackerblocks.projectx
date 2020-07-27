@@ -4,27 +4,6 @@ import { inject as service } from '@ember/service';
 export default class IndexRoute extends Route {
   @service metrics
 
-  queryParams = {
-    offset: {
-      refreshModel: true
-    },
-    limit: {
-      refreshModel: true
-    },
-    difficulty: {
-      refreshModel: true
-    },
-    status: {
-      refreshModel: true
-    },
-    tags: {
-      refreshModel: true
-    },
-    q: {
-      refreshModel: true
-    }
-  }
-
   model() {
     return this.modelFor('contests.contest')
   }

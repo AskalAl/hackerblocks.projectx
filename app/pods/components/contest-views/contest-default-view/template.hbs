@@ -1,0 +1,31 @@
+<ContestViews::ContestDefaultView::ContestHeader
+  @contest={{contest}}
+/>
+<div class="border-card mt-4">
+  <div class="right-input">
+    <Input 
+      class="input-text input-text--non-rounded" 
+      placeholder="Search problems by name"
+      @enter={{action searchProblem}}
+      @type="text"
+      @value={{searchQuery}} />
+  </div>
+  {{#if q}}
+    <h5 class="bold mt-4">
+      Showing results for <span class="orange">{{q}}</span>
+    </h5>
+  {{/if}}
+</div>
+<div class="divider-h mt-4"></div>
+<ContestViews::ContestDefaultView::ContentList
+  @contest={{contest}}
+  @page={{page}}
+  @route='contests.contest.content'  
+  @contents={{contents}}
+  @isError={{showError}}
+  @filter={{filter}} as |contents|
+>
+  <PaginationPill 
+    @pagination={{contents.meta.pagination}} 
+    @setOffset={{action "setOffset"}} />      
+</ContestViews::ContestDefaultView::ContentList> 
